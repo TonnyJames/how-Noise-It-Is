@@ -1,10 +1,10 @@
 package com.projetointegrador.hownoiseitis.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Objects;
 
 @Document
@@ -13,9 +13,16 @@ public class InfoDb {
     @Id
     private String id;
     private String nomeDispositivo;
-    @JsonFormat(pattern = "dd-MM-yyyy@HH:mm:ss", locale = "pt_BR")
+//    @JsonFormat(pattern = "dd-MM-yyyy@HH:mm:ss", locale = "pt_BR")
     private LocalDateTime data;
     private Integer valor;
+
+    public InfoDb(String id, String nomeDispositivo, Integer valor) {
+        this.id = id;
+        this.nomeDispositivo = nomeDispositivo;
+        this.data = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
+        this.valor = valor;
+    }
 
     public String getId() {
         return id;
