@@ -15,7 +15,7 @@ public class InfoDb {
     @Id
     private String id;
     private String nomeDispositivo;
-    @JsonFormat(pattern = "dd-MM-yyyy@HH:mm:ss", locale = "pt_BR")
+    @JsonFormat(pattern = "yyyy-MM-dd@HH:mm:ss.SSSD", locale = "pt_BR")
     private LocalDateTime data;
     private Integer valor;
 
