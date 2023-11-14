@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Repository
 public class MongoEventsRepository extends MongoPersistence {
@@ -19,7 +20,7 @@ public class MongoEventsRepository extends MongoPersistence {
 
     public Object consultarUltimasMedicoes() {
 
-        LocalDateTime horaAtual = LocalDateTime.now();
+        LocalDateTime horaAtual = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
 
         LocalDateTime dataHoraModificado = horaAtual.minusDays(2);
 
